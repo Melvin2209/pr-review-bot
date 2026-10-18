@@ -215,7 +215,7 @@ demo/create-demo-repo.sh --local /tmp/demo          # or just build it locally
 The project follows [semantic versioning](https://semver.org/). `dist/` is committed because GitHub runs the bundle directly, and CI fails if it is out of date.
 
 1. Add a section for the new version in [`CHANGELOG.md`](CHANGELOG.md).
-2. Run `scripts/release.sh patch|minor|major` from an up-to-date `main`. It bumps `package.json`, rebuilds `dist/`, commits, tags `vX.Y.Z` and pushes.
+2. Either run `scripts/release.sh patch|minor|major` from an up-to-date `main` (it bumps `package.json`, rebuilds `dist/`, commits, tags `vX.Y.Z` and pushes), or bump the version in a normal commit and click **Actions → Release → Run workflow**, which creates the `vX.Y.Z` tag for the current `package.json` version.
 3. The [Release workflow](.github/workflows/release.yml) checks the tag matches `package.json` and `dist/`, publishes a GitHub release with the changelog notes, and moves the major tag (`v1`) so `@v1` users get the update.
 4. **First release only:** edit the release on GitHub and tick *"Publish this Action to the GitHub Marketplace"* (requires accepting the Marketplace agreement). Later releases stay listed.
 
