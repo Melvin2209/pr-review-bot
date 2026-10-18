@@ -1,6 +1,6 @@
 name: 'PR Review Bot'
 description: 'Reviews pull requests: size, files without tests, leftover TODO/console.log, new dependencies and their licenses — in one self-updating comment.'
-author: 'pr-review-bot'
+author: 'Melvin2209'
 
 branding:
   icon: 'check-square'

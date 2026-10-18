@@ -12,7 +12,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 if [ "${1:-}" = "--local" ]; then
   LOCAL=1
-  OWNER="your-name"
+  OWNER="Melvin2209"
   DIR="${2:?usage: create-demo-repo.sh --local <dir>}"
 else
   LOCAL=0

@@ -17,5 +17,5 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - `.pr-review.yml` configuration, read from the base branch.
 - Job summary, inline annotations, `fail-on` / `min-score` inputs and `score`, `grade`, `errors`, `warnings`, `comment-id`, `report` outputs.
 
-[Unreleased]: https://github.com/OWNER/pr-review-bot/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/OWNER/pr-review-bot/releases/tag/v1.0.0
+[Unreleased]: https://github.com/Melvin2209/pr-review-bot/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Melvin2209/pr-review-bot/releases/tag/v1.0.0

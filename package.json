@@ -24,7 +24,7 @@
     "license",
     "typescript"
   ],
-  "author": "",
+  "author": "Melvin2209",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.1",

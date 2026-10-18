@@ -1,6 +1,6 @@
 # PR Review Bot
 
-[![CI](https://github.com/OWNER/pr-review-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/pr-review-bot/actions/workflows/ci.yml)
+[![CI](https://github.com/Melvin2209/pr-review-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/Melvin2209/pr-review-bot/actions/workflows/ci.yml)
 [![GitHub Marketplace](https://img.shields.io/badge/Marketplace-PR%20Review%20Bot-purple?logo=github)](https://github.com/marketplace/actions/pr-review-bot)
 
 A GitHub Action that does the boring part of reviewing a pull request, so humans can focus on the interesting part.
@@ -14,7 +14,7 @@ On every PR it checks:
 
 It then posts **one** summary comment — checklist, score out of 100, suggestions — and **edits that same comment** on every push instead of piling up new ones.
 
-> **Demo:** see the bot on real pull requests in [OWNER/pr-review-bot-demo](https://github.com/OWNER/pr-review-bot-demo/pulls).
+> **Demo:** see the bot on real pull requests in [Melvin2209/pr-review-bot-demo](https://github.com/Melvin2209/pr-review-bot-demo/pulls).
 
 ## Example comment
 
@@ -63,7 +63,7 @@ jobs:
   review:
     runs-on: ubuntu-latest
     steps:
-      - uses: OWNER/pr-review-bot@v1
+      - uses: Melvin2209/pr-review-bot@v1
 ```
 
 No checkout step is needed: the action reads everything through the GitHub API. That's it — sensible defaults apply until you add a `.pr-review.yml`.
@@ -89,7 +89,7 @@ No checkout step is needed: the action reads everything through the GitHub API. 
 | `report` | The full report as JSON, for your own follow-up steps. |
 
 ```yaml
-      - uses: OWNER/pr-review-bot@v1
+      - uses: Melvin2209/pr-review-bot@v1
         id: review
       - if: steps.review.outputs.grade == 'F'
         run: gh pr edit ${{ github.event.number }} --add-label "needs-split"
