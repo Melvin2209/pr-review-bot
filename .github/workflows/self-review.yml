@@ -1,0 +1,23 @@
+# Dogfooding: run the action from this checkout on every PR to this repository.
+name: Self review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: self-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./
+        id: review
+      - run: echo "Score ${{ steps.review.outputs.score }} (${{ steps.review.outputs.grade }})"

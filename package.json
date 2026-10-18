@@ -1,0 +1,43 @@
+{
+  "name": "pr-review-bot",
+  "version": "1.0.0",
+  "description": "GitHub Action that reviews pull requests: size, missing tests, leftover TODO/console.log, new dependencies and their licenses — summarised in a single, self-updating comment.",
+  "type": "module",
+  "private": true,
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist --source-map --license licenses.txt",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "all": "npm run typecheck && npm test && npm run build",
+    "review:local": "ncc build scripts/local-review.ts -o lib/local-review -q && node lib/local-review/index.js"
+  },
+  "keywords": [
+    "github-action",
+    "pull-request",
+    "code-review",
+    "license",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^3.0.1",
+    "@actions/github": "^9.1.1",
+    "minimatch": "^10.2.6",
+    "semver": "^7.8.5",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/semver": "^7.8.0",
+    "@vercel/ncc": "^0.38.4",
+    "typescript": "~5.9.3",
+    "vitest": "^3.2.7"
+  }
+}

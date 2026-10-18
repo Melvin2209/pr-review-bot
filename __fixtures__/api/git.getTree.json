@@ -1,0 +1,17 @@
+{
+  "sha": "9f1c2e7b4a8d3f6e5c1b0a9d8e7f6a5b4c3d2e1f",
+  "truncated": false,
+  "tree": [
+    { "path": "package.json", "mode": "100644", "type": "blob" },
+    { "path": "package-lock.json", "mode": "100644", "type": "blob" },
+    { "path": "src", "mode": "040000", "type": "tree" },
+    { "path": "src/checkout", "mode": "040000", "type": "tree" },
+    { "path": "src/checkout/cart.ts", "mode": "100644", "type": "blob" },
+    { "path": "src/checkout/cart.test.ts", "mode": "100644", "type": "blob" },
+    { "path": "src/checkout/discount.ts", "mode": "100644", "type": "blob" },
+    { "path": "src/checkout/format.ts", "mode": "100644", "type": "blob" },
+    { "path": "src/checkout/item.ts", "mode": "100644", "type": "blob" },
+    { "path": "test/checkout/format.spec.ts", "mode": "100644", "type": "blob" },
+    { "path": "assets/logo.png", "mode": "100644", "type": "blob" }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "https://registry.npmjs.org/left-pad/1.3.0": { "name": "left-pad", "version": "1.3.0", "license": "WTFPL" },
+  "https://registry.npmjs.org/gpl-thing/2.0.0": { "name": "gpl-thing", "version": "2.0.0", "license": "GPL-3.0-or-later" },
+  "https://registry.npmjs.org/lodash/4.17.21": { "name": "lodash", "version": "4.17.21", "license": "MIT" },
+  "https://registry.npmjs.org/@scope%2Fpkg/latest": { "name": "@scope/pkg", "version": "3.0.0", "licenses": [{ "type": "MIT" }, { "type": "Apache-2.0" }] },
+  "https://pypi.org/pypi/requests/2.32.3/json": { "info": { "name": "requests", "license": "Apache-2.0", "classifiers": [] } },
+  "https://pypi.org/pypi/numpy/json": { "info": { "name": "numpy", "license_expression": "BSD-3-Clause" } },
+  "https://pypi.org/pypi/pyqt5/json": { "info": { "name": "PyQt5", "license": "", "classifiers": ["License :: OSI Approved :: GNU General Public License v3 (GPLv3)"] } }
+}

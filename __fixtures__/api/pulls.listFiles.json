@@ -1,0 +1,64 @@
+[
+  {
+    "sha": "b1946ac92492d2347c6235b4d2611184d5f8e2a1",
+    "filename": "src/checkout/discount.ts",
+    "status": "added",
+    "additions": 24,
+    "deletions": 0,
+    "changes": 24,
+    "blob_url": "https://github.com/acme/shop/blob/9f1c2e7/src/checkout/discount.ts",
+    "patch": "@@ -0,0 +1,24 @@\n+export interface Discount {\n+  code: string;\n+  percent: number;\n+}\n+\n+// TODO: load codes from the database\n+const CODES: Discount[] = [\n+  { code: 'WELCOME10', percent: 10 },\n+  { code: 'VIP25', percent: 25 },\n+];\n+\n+export function findDiscount(code: string): Discount | undefined {\n+  return CODES.find((d) => d.code === code.toUpperCase());\n+}\n+\n+export function applyDiscount(total: number, code: string): number {\n+  const discount = findDiscount(code);\n+  console.log('applying discount', discount);\n+  if (!discount) return total;\n+  return Math.round(total * (100 - discount.percent)) / 100;\n+}\n+\n+export const MAX_PERCENT = 50;\n+export const MIN_TOTAL = 0;"
+  },
+  {
+    "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "filename": "src/checkout/cart.ts",
+    "status": "modified",
+    "additions": 8,
+    "deletions": 3,
+    "changes": 11,
+    "patch": "@@ -10,9 +10,14 @@ import { Item } from './item';\n export class Cart {\n   private items: Item[] = [];\n \n-  total(): number {\n-    return this.items.reduce((sum, i) => sum + i.price, 0);\n-  }\n+  total(code?: string): number {\n+    const raw = this.items.reduce((sum, i) => sum + i.price, 0);\n+    // FIXME: rounding errors on large carts\n+    return code ? applyDiscount(raw, code) : raw;\n+  }\n+\n+  isEmpty(): boolean {\n+    return this.items.length === 0;\n+  }\n }"
+  },
+  {
+    "sha": "4b825dc642cb6eb9a060e54bf8d69288fbee4904",
+    "filename": "src/checkout/format.ts",
+    "status": "modified",
+    "additions": 3,
+    "deletions": 1,
+    "changes": 4,
+    "patch": "@@ -1,4 +1,6 @@\n-export const formatPrice = (n: number) => `$${n}`;\n+export const formatPrice = (n: number) => `$${n.toFixed(2)}`;\n+\n+export const formatPercent = (n: number) => `${n}%`;\n \n export default formatPrice;"
+  },
+  {
+    "sha": "8baef1b4abc478178b004d62031cf7fe6db6f903",
+    "filename": "src/checkout/cart.test.ts",
+    "status": "modified",
+    "additions": 10,
+    "deletions": 0,
+    "changes": 10,
+    "patch": "@@ -20,3 +20,13 @@ describe('Cart', () => {\n     expect(cart.total()).toBe(30);\n   });\n+\n+  it('applies a discount code', () => {\n+    // TODO this one should not be reported: tests are excluded\n+    expect(cart.total('WELCOME10')).toBe(27);\n+  });\n+\n+  it('is empty by default', () => {\n+    expect(new Cart().isEmpty()).toBe(true);\n+  });\n+\n });"
+  },
+  {
+    "sha": "3b18e512dba79e4c8300dd08aeb37f8e728b8dad",
+    "filename": "package.json",
+    "status": "modified",
+    "additions": 3,
+    "deletions": 1,
+    "changes": 4,
+    "patch": "@@ -8,7 +8,9 @@\n   \"dependencies\": {\n-    \"express\": \"^4.19.2\"\n+    \"express\": \"^4.19.2\",\n+    \"left-pad\": \"^1.3.0\",\n+    \"gpl-thing\": \"2.0.0\"\n   },"
+  },
+  {
+    "sha": "a8a940627d132695a9769df883f85992f0ff4a43",
+    "filename": "package-lock.json",
+    "status": "modified",
+    "additions": 26,
+    "deletions": 1,
+    "changes": 27
+  },
+  {
+    "sha": "0000000000000000000000000000000000000000",
+    "filename": "assets/logo.png",
+    "status": "added",
+    "additions": 0,
+    "deletions": 0,
+    "changes": 0
+  }
+]

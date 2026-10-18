@@ -1,0 +1,14 @@
+{
+  "name": "shop",
+  "version": "1.4.0",
+  "private": true,
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.0"
+  }
+}

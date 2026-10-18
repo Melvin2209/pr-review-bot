@@ -1,0 +1,14 @@
+# pr-review-bot reviewing itself (see .github/workflows/self-review.yml).
+size:
+  warn: 500
+  max: 1500
+
+tests:
+  severity: warning
+  source: ['src/**/*.ts']
+  ignore:
+    add: ['src/index.ts']
+
+leftovers:
+  exclude:
+    add: ['scripts/**', 'demo/**']
